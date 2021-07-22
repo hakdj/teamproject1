@@ -24,14 +24,12 @@ class CHS:
         genre = genres_d.columns.tolist();
         num = [];
         final = [];
-
         for i in range(0, len(genres_d.columns)):
             num.append(int(genres_d[genre[i]].value_counts().loc[1]));
             line = [];
             line.append(genre[i]);
             line.append(num[i]);
             final.append(line);
-
         data = final.copy();
 
         return data;
@@ -56,8 +54,24 @@ class CHS:
             data.append(movie);
         return data;
 
-    #
-    # def chs3(self):
+
+    def chs3(self):
+        df = pd.read_excel(DATA_DIRS[0]+'//naver.xls',header=0,)
+        df.fillna('-',inplace=True);
+        data=[];
+        for i in range(0,len(df)):
+            naver={};
+            naver['Title']=df['제목'][i];
+            naver['audience_rating']=df['관람객평점'][i];
+            naver['Genres']=df['장르'][i];
+            naver['Directors']=df['감독'][i];
+            naver['Actor']=df['출연배우'][i];
+            naver['Opening_date']=df['개봉일'][i];
+            naver['Runtime']=df['상영시간'][i];
+            data.append(naver);
+        return data;
+
+
 
 
 if __name__ == '__main__':

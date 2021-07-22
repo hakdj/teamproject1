@@ -35,5 +35,6 @@ urlpatterns = [
     path('sp', views.sp, name='sp'),
     path('tables', views.tables, name='tables'),
     path('tablechs', views.tablechs, name='tablechs'),
+    path('tablechs2', views.tablechs2, name='tablechs2'),
 
 ]

@@ -57,6 +57,14 @@ def tablechs(request):
     };
     return render(request, 'index.html',context)
 
+def tablechs2(request):
+    data= CHS().chs3()
+    context = {
+        'section': 'tablechs2.html',
+        'data': data
+    };
+    return render(request, 'index.html',context)
+
 
 ## 운기님 코드 구현
 def matrix(request):
